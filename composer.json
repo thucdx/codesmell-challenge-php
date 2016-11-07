@@ -1,0 +1,21 @@
+{
+  "name": "nal/code_smell_fighter",
+  "description": "php project for code smell fighter s01",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "thucdx",
+      "email": "thucdx@nal.vn"
+    }
+  ],
+
+  "require": {
+    "phpunit/phpunit": "4.8.*"
+  },
+
+  "autoload": {
+    "prs-4": {
+      "": "."
+    }
+  }
+}

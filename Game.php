@@ -127,7 +127,9 @@ class Game {
 			if ($this->isGettingOutOfPenaltyBox) {
 				echoln("Answer was correct!!!!");
 			$this->purses[$this->currentPlayer]++;
-				echoln($this->players[$this->currentPlayer]
+				$currentPlayerName = $this->players[$this->currentPlayer];
+
+				echoln($currentPlayerName
 						. " now has "
 						.$this->purses[$this->currentPlayer]
 						. " Gold Coins.");
@@ -136,6 +138,8 @@ class Game {
 				$this->currentPlayer++;
 				if ($this->currentPlayer == count($this->players)) $this->currentPlayer = 0;
 
+				if (!$winner)
+					$this->winnerName = $currentPlayerName;
 				return $winner;
 			} else {
 				$this->currentPlayer++;
@@ -149,7 +153,8 @@ class Game {
 
 			echoln("Answer was corrent!!!!");
 		$this->purses[$this->currentPlayer]++;
-			echoln($this->players[$this->currentPlayer]
+			$currentPlayerName = $this->players[$this->currentPlayer];
+			echoln($currentPlayerName
 					. " now has "
 					.$this->purses[$this->currentPlayer]
 					. " Gold Coins.");
@@ -158,6 +163,8 @@ class Game {
 			$this->currentPlayer++;
 			if ($this->currentPlayer == count($this->players)) $this->currentPlayer = 0;
 
+			if (!$winner)
+				$this->winnerName = $currentPlayerName;
 			return $winner;
 		}
 	}
@@ -175,5 +182,9 @@ class Game {
 
 	function didPlayerWin() {
 		return !($this->purses[$this->currentPlayer] == 6);
+	}
+
+	function getWinnerName() {
+		return $this->winnerName;
 	}
 }
